@@ -12,7 +12,8 @@ import org.springframework.context.annotation.Profile;
 //@Import(JdbcTemplateV1Config.class)
 //@Import(JdbcTemplateV2Config.class)
 @Import(JdbcTemplateV3Config.class)
-@SpringBootApplication(scanBasePackages = "hello.itemservice.web") // 컴포넌트 스캔 범위 지정(컨트롤러만), 지정하지 않으면 현재 패키지와 하위 패키지 모두 스캔함
+// 컴포넌트 스캔 범위 지정(컨트롤러만), 지정하지 않으면 현재 패키지와 하위 패키지 모두 스캔함
+@SpringBootApplication(scanBasePackages = "hello.itemservice.web")
 public class ItemServiceApplication {
 
 	public static void main(String[] args) {
