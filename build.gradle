@@ -21,7 +21,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // 뷰 템플릿
 	implementation 'org.springframework.boot:spring-boot-starter-web' // 스프링 MVC
-	compileOnly 'org.projectlombok:lombok' // 롬복
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc' // JdbcTemplate
+	runtimeOnly 'com.h2database:h2' // H2 데이터베이스
+	// 롬복
+	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 

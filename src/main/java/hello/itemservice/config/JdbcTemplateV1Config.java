@@ -1,15 +1,20 @@
 package hello.itemservice.config;
 
 import hello.itemservice.repository.ItemRepository;
-import hello.itemservice.repository.memory.MemoryItemRepository;
+import hello.itemservice.repository.jdbctemplate.JdbcTemplateItemRepositoryV1;
 import hello.itemservice.service.ItemService;
 import hello.itemservice.service.ItemServiceV1;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-// Bean을 수동으로 등록 (구현체를 편하게 변경하기 위해서)
+import javax.sql.DataSource;
+
 @Configuration
-public class MemoryConfig {
+@RequiredArgsConstructor
+public class JdbcTemplateV1Config {
+
+    private final DataSource dataSource;
 
     @Bean
     public ItemService itemService() {
@@ -18,6 +23,6 @@ public class MemoryConfig {
 
     @Bean
     public ItemRepository itemRepository() {
-        return new MemoryItemRepository();
+        return new JdbcTemplateItemRepositoryV1(dataSource);
     }
 }
